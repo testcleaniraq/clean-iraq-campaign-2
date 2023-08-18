@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from "next/image"
-import Image1 from "../homeAssets/young man leaning to pick garbige.jpeg";
+import Image1 from "../homeAssets/awerness1.jpeg";
 import { useMediaQuery } from '@react-hook/media-query';
 import Image2 from "../homeAssets/cleaning-11.jpeg"
 import { Container } from "@/global/components/Container";
