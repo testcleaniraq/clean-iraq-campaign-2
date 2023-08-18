@@ -1,5 +1,5 @@
 import Image from "next/image";
-import HeroImage from "../../../app/[locale]/homeAssets/potentail-home2.jpeg";
+import HeroImage from "@/app/homeAssets/potentail-home2.jpeg";
 import { faClock,faBuilding } from '@fortawesome/free-regular-svg-icons';
 import { faMapPin} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

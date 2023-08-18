@@ -2,6 +2,9 @@
 import Header from '@/global/components/Header';
 import './globals.css';
 import Footer from '@/global/components/footer/Footer';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 export default function RootLayout({
   children}: {
   children: React.ReactNode;
