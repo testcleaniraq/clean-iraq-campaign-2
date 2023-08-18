@@ -2,7 +2,6 @@ import Image from "next/image"
 import { useMediaQuery } from '@react-hook/media-query';
 import React, { useEffect, useState } from "react";
 import ReactPlayer from "react-player";
-import StatsBgImage from "../../[locale]/homeAssets/potaintal-home.jpeg";
 
 export const VideoSection = () => {
   const isTabletOrMobile = useMediaQuery('(max-width: 768px)');
@@ -17,8 +16,6 @@ export const VideoSection = () => {
     </section>
   )
 }
-
-
 function VideoPlayer({ videoUrl }:{videoUrl:string}) {
   const [isClient, setIsClient] = useState(false);
 
@@ -29,15 +26,15 @@ function VideoPlayer({ videoUrl }:{videoUrl:string}) {
   if (!isClient) {
     return null;
   }
-  return (<></>
-      // <ReactPlayer
-      // controls={true}
+  return (
+      <ReactPlayer
+      controls={true}
       
-      //   playing={false}
-      //   url={videoUrl}
-      //   width="100"
-      //   height={400}
-      //   crossOrigin="anonymous"
-      // />
+        playing={false}
+        url={videoUrl}
+        width="100"
+        height={400}
+        crossOrigin="anonymous"
+      />
   );
 }
