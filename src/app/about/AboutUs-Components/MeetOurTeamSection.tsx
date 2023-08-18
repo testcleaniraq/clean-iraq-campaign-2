@@ -1,7 +1,8 @@
 'use client'
-import React, { use, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import personalphoto from '../Assets/personalphoto.jpg'
 import Image, { StaticImageData } from 'next/image'
+import { initScrollReveal } from '../AboutUs-Components/ScrollReveal';
 import HeroSectionphoto1 from '../Assets/HeroSectionphoto1.jpg'
 import HeroSectionphoto2 from '../Assets/HeroSectionphoto2.jpg'
 import HeroSectionphoto3 from '../Assets/HeroSectionphoto3.jpg'
@@ -15,6 +16,7 @@ import supervisor1221 from "../Assets/supervisor1221.jpg"
 import supervisor11 from "../Assets/supervisor11.jpg"
 import supervisor4 from "../Assets/supervisor4.jpg"
 const MeetOurTeamSection = () => {
+  
     type Object = {
         [key: string]: any;
         id?: number;
@@ -79,12 +81,15 @@ const MeetOurTeamSection = () => {
             }
         })
     }
+    useEffect(()=>{
+      initScrollReveal()
+    },[])
   return (
     <section id='OurTeam' className='min-h-screen flex flex-col w-[98%] md:w-[90%]  mx-auto mt-5 rounded-3xl  items-center p-8 pl-9 pr-9 '>
-      <h1 className='xl:text-[4rem] lg:text-[3.5rem] md:text-[3rem] 2sm:text-[2.0rem] 2sm:mt-[4rem] xl:mr-[4rem] text-secondary font-bold'>التقي بفريقنا</h1>
+      <h1 id='MeetOurTeamText' className='xl:text-[4rem] lg:text-[3.5rem] md:text-[3rem] 2sm:text-[2.0rem] 2sm:mt-[4rem] xl:mr-[4rem] text-secondary font-bold'>التقي بفريقنا</h1>
       <div className=' xl:block lg:block md:block 2sm:hidden xl:w-[29rem] xl:mr-[3rem] lg:w-[28rem] md:w-[25rem] 2sm:w-[13rem]  h-[0.10rem] bg-secondary mt-[2rem]'></div>
       <div className='h-3/4 w-full  flex xl:flex-row lg:flex-row md:flex-row 2sm:flex-col justify-center items-center '>
-        <div className='w-2/4	 flex justify-end items-end  '>
+        <div id='SectionPhotoMeetOurTeam' className='w-2/4	 flex justify-end items-end  '>
           <div className='flex justify-center items-center xl:w-[20rem] xl:h-[20rem] lg:w-[20rem] lg:h-[20rem] md:w-[15rem] md:h-[15rem] 2sm:w-[8rem] 2sm:h-[8rem]  lg:ml-[10rem] md:ml-[6rem] 2sm:mt-[1.2rem]   '>
           {newperson.photo ? (
                   <Image src={newperson.photo} alt='photo' className={`w-full h-full xl:rounded-[0rem] lg:rounded-[0rem] md:rounded-[0rem] 2sm:rounded-[10rem]  ${styles.bordermeetourteam} `} />
@@ -94,7 +99,7 @@ const MeetOurTeamSection = () => {
           </div>
         </div>
         <div className=' xl:block lg:block md:block 2sm:hidden   xl:h-[30rem] lg:h-[25rem] md:h-[25rem] 2sm:h-[15rem] border-l-[0.2rem] bg xl:ml-[10rem] lg:ml-[6rem] md:ml-[3rem]    border-secondary mt-[2rem]'></div>
-        <div className='w-2/4 xl:ml-[10rem] lg:ml-[1rem] lg:mr-[9rem] md:mr-[1rem] 2sm:mr-[11rem] 2sm:mt-[2rem]	 h-full  flex justify-start items-start  '>
+        <div id='SectionContentMeetOurTeam' className='w-2/4 xl:ml-[10rem] lg:ml-[1rem] lg:mr-[9rem] md:mr-[1rem] 2sm:mr-[11rem] 2sm:mt-[2rem]	 h-full  flex justify-start items-start  '>
           <div className='flex flex-col justify-start items-center'>
             <h1 className='xl:text-[4rem] lg:text-[4rem] md:text-[3rem] 2sm:text-[2rem]'>{newperson.name}</h1>
             <div className='w-[10rem]  border-[0.1rem]  border-secondary mt-[0.6rem] mb-[0.5rem]'></div>
@@ -119,7 +124,7 @@ const MeetOurTeamSection = () => {
 
 
       </div>
-      <div className='xl:flex lg:flex md:flex 2sm:grid 2sm:grid-cols-2 2sm:grid-rows-2 xl:gap-[0rem] lg:gap-[0rem] md:gap-[0rem] 2sm:gap-[3rem] mt-[3rem]'>
+      <div id='SectionTeamMembersMeetOurTeam' className='xl:flex lg:flex md:flex 2sm:grid 2sm:grid-cols-2 2sm:grid-rows-2 xl:gap-[0rem] lg:gap-[0rem] md:gap-[0rem] 2sm:gap-[3rem] mt-[3rem]'>
             {object.map((person: Object)=>(
                  <div key={person.id} className={`xl:w-[13rem] xl:h-[17rem] lg:w-[10.5rem] lg:h-[15rem] md:w-[7.8rem] 2sm:w-[4rem] flex flex-col justify-center  items-center `}>
                  <div className={` xl:h-[9rem] xl:w-[9rem] lg:h-[9rem] lg:w-[9rem] md:h-[6rem] md:w-[6rem] 2sm:h-[5rem] 2sm:w-[5rem] rounded-[13rem] `}>

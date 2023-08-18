@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+'use client'
+import React, { useState,useEffect } from 'react';
 import Image from 'next/image';
 import email from '../Assets/email.png';
 import socialmediamarketing from "../Assets/socialmediamarketing.png"
-
+import { initScrollReveal } from '../AboutUs-Components/ScrollReveal';
+import styles from "../Assets/css.module.css"
 interface handleselectedid {
   handleselectedid: (id: number) => void;
 }
 
 const CampaignMessageGalleryPhotos: React.FC<handleselectedid> = ({ handleselectedid }) => {
+
   const [selectedId, setSelectedId] = useState<number | null>(1);
+  useEffect(()=>{
+    initScrollReveal()
+  },[])
 
   const objects = [
     {
@@ -29,13 +35,14 @@ const CampaignMessageGalleryPhotos: React.FC<handleselectedid> = ({ handleselect
   };
 
   return (
-    <section className='flex h-[9rem] flex-row '>
+    <section id='SectionCampaignMessageGallery' className='flex h-[9rem] flex-row '>
       {objects.map((object) => (
         <button
+        
           onClick={() => choosearticle(object.id)}
           key={object.id}
           className={`flex flex-col items-center  lg:h-[8rem] lg:w-[9rem] 2sm:h-[5rem] 2sm:w-[6rem] lg:ml-[2rem] mr-[0.5rem] bg-white rounded-[1rem] ${
-            selectedId === object.id ? 'bg-blue-500 lg:h-[9rem] lg:w-[10rem] 2sm:h-[6rem] 2sm:w-[7rem] text-white' : '' 
+            selectedId === object.id ? `  ${styles.campaigngallery} lg:h-[9rem] lg:w-[10rem] 2sm:h-[6rem] 2sm:w-[7rem] text-white` : '' 
           }`}
         >
           <div className='lg:w-[4rem] lg:h-[4rem] 2sm:w-[3rem] 2sm:h-[3rem] rounded-[10rem]  bg-gray-200 overflow-hidden mt-[0.5rem]'>

@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+import React, {useEffect} from 'react'
+
 import Image from 'next/image';
 import WhoWeAreSectionphoto1 from "../Assets/WhoWeAreSectionphoto1.jpg"
 import WhoWeAreSectionphoto2 from "../Assets/WhoWeAreSectionphoto2.jpg"
@@ -8,20 +10,25 @@ import litter from "../Assets/litter.png"
 import nolitteringsign from "../Assets/nolitteringsign.png"
 import plastic from "../Assets/plastic.png"
 import styles from "../Assets/css.module.css"
-const WhoWeAreSection = () => {
+import { initScrollReveal } from '../AboutUs-Components/ScrollReveal';
+
+const WhoWeAreSection:React.FC = () => {
+  useEffect(()=>{
+    initScrollReveal()
+  },[])
   return (
     <section id='whoweare' className='min-h-screen  flex flex-col items-center w-[98%] md:w-[90%]  mx-auto mt-1 rounded-3xl  p-8 pl-9 pr-9 bg-[#fffdfa] '>
 
       <div className='flex  lg:flex-row md:flex-col 2sm:flex-col justify-center items-center h-full    '>
 
-        <div className='flex lg:w-2/5 bg-transparent border-[0.2rem] border-gray-500  w-[20rem] h-[20rem] md:w-[17rem] md:h-[17rem] 2sm:w-[10rem] 2sm:h-[10rem] mr-[5rem] lg:ml-[4rem] relative 2sm:ml-[4rem]' >
+        <div id='FirstSectionWhoWeAre' className='flex lg:w-2/5 bg-transparent border-[0.2rem] border-gray-500  w-[20rem] h-[20rem] md:w-[17rem] md:h-[17rem] 2sm:w-[10rem] 2sm:h-[10rem] mr-[5rem] lg:ml-[4rem] relative 2sm:ml-[4rem]' >
            <Image src={WhoWeAreSectionphoto1} alt='photo' className='absolute w-[9rem] h-[12rem] md:w-[7rem] md:h-[10rem] 2sm:w-[5rem] 2sm:h-[5rem]  top-[2rem] right-[77%]' />
            <Image src={WhoWeAreSectionphoto4} alt='photo' className='absolute w-[10.5rem] h-[7rem] md:w-[8rem] md:h-[6rem] 2sm:w-[6rem] 2sm:h-[4rem] top-[-14%] left-[70%]' />
            <Image src={WhoWeAreSectionphoto3} alt='photo' className={`absolute w-[12rem] h-[16rem] md:w-[9rem] md:h-[13rem] 2sm:w-[5rem] 2sm:h-[7rem] bottom-[-14%] left-[60%] ${styles.tv1}`} />
 
 
         </div>
-        <article className='flex flex-col  text-right lg:w-3/5	 overflow-hidden ml-[2rem] lg:ml-[10rem] md:mt-[5rem] 2sm:mt-[5rem]'>
+        <article id='SecondSectionWhoWeAre'  className='flex flex-col  text-right lg:w-3/5	 overflow-hidden ml-[2rem] lg:ml-[10rem] md:mt-[5rem] 2sm:mt-[5rem]'>
             <h1 className='lg:text-[2.0rem] md:text-[2.2rem] sm:text-[1.8rem] md:text-center sm:text-center   font-bold text-secondary 2sm:text-center 2sm:text-[1.2rem]'>منو سفراء النظافة</h1>
             <h2 className='lg:text-[1.5rem] mt-[2rem] font-bold 2sm:text-[1.2rem]'>مهمتنا</h2>
             <p className='mt-[1rem] 2sm:text-[0.6rem] lg:text-[1rem] text-gray1'>هذي الحملة منكم واليكم. اني وانت واحنا كلنا سفراء النظافة اذا نحرص على نظافة هذا البلد ونتعهد</p>
