@@ -1,5 +1,7 @@
 'use client';
+import Header from '@/global/components/Header';
 import './globals.css';
+import Footer from '@/global/components/footer/Footer';
 export default function RootLayout({
   children}: {
   children: React.ReactNode;
@@ -8,9 +10,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className="bg-light font-ibm-plex-sans-arabic">
+      <body suppressHydrationWarning={true} className="bg-light font-ibm-plex-sans-arabic">
+        <Header/>
         {children}
-
+        <Footer/>
         </body>
     </html>
   );
