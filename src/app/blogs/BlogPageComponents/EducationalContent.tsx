@@ -152,8 +152,8 @@ const EducationalContent: React.FC = () => {
                 <div key={sliderContent.id} className='w-full 2xl:h-5/6 xl:h-5/6 lg:h-5/6 md:h-5/6 2sm:h-[10rem] flex justify-end  items-end  '>
                   <div className='flex flex-col w-full h-full'>
                   <div className='h-[18rem] w-full   flex flex-row'>
-                <div className='w-6/12 flex  '>
-                    <div className='2xl:w-full 2xl:h-full xl:w-full xl:h-full lg:w-full lg:h-full md:w-[14rem] md:h-[13rem] 2sm:w-[10rem] 2sm:h-[6rem] 2sm:mt-[1rem]   rounded-[1rem]'>
+                <div className='w-6/12 2xl:ml-[1rem] xl:ml-[1rem] lg:ml-[1rem] md:ml-[1rem] 2sm:ml-[0.1rem] flex  '>
+                    <div className='2xl:w-[24rem] 2xl:h-[16rem] xl:w-[24rem] lg:h-[16rem] lg:w-[22rem] xl:h-[16rem] md:w-[15rem] md:h-[15rem] 2sm:w-[9rem] 2sm:h-[6rem] 2sm:mt-[1rem]   rounded-[1rem]'>
                     <ImageSlider educationcontent={sliderContent.object} />
                     </div>
                 </div>

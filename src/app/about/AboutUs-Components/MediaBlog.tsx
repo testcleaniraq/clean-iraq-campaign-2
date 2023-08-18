@@ -120,7 +120,7 @@ const MediaBlog: React.FC = () => {
                 <div className={styles.topsection}>
                     <h1 className='2xl:text-[5rem] xl:text-[5rem] lg:text-[5rem] md:text-[5rem] 2sm:text-[3rem] text-secondary '>الاعلام</h1>
                 </div>
-                <div className={styles.timeline}>
+                <div id='SectionMediaBlog' className={styles.timeline}>
                     <div className={styles.line}></div>
                     {MassMedia.map((Media) => (
                         <div className={styles.section} key={Media.id}>
@@ -134,8 +134,7 @@ const MediaBlog: React.FC = () => {
             <iframe
                                     src={Media.url}
                                     width="100%"
-
-                                    height="150"
+                                    className={`${styles.responsiveIframe}`}
                                 ></iframe>
         </div>
         <div className="flex flex-col items-center gap-2 rounded-lg   h-full py-6 w-full text-center bg-[#f3f7f5] shadow-lg shadow-gray-300	">
