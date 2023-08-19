@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import personalphoto from '../Assets/personalphoto.jpg'
 import Image, { StaticImageData } from 'next/image'
-import { initScrollReveal } from '../AboutUs-Components/ScrollReveal';
 import HeroSectionphoto1 from '../Assets/HeroSectionphoto1.jpg'
 import HeroSectionphoto2 from '../Assets/HeroSectionphoto2.jpg'
 import HeroSectionphoto3 from '../Assets/HeroSectionphoto3.jpg'
@@ -81,9 +80,6 @@ const MeetOurTeamSection = () => {
             }
         })
     }
-    useEffect(()=>{
-      initScrollReveal()
-    },[])
   return (
     <section id='OurTeam' className='min-h-screen flex flex-col w-[98%] md:w-[90%]  mx-auto mt-5 rounded-3xl  items-center p-8 pl-9 pr-9 '>
       <h1 id='MeetOurTeamText' className='xl:text-[4rem] lg:text-[3.5rem] md:text-[3rem] 2sm:text-[2.0rem] 2sm:mt-[4rem] xl:mr-[4rem] text-secondary font-bold'>التقي بفريقنا</h1>
