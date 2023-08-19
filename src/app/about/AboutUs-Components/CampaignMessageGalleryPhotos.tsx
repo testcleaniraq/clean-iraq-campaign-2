@@ -3,7 +3,6 @@ import React, { useState,useEffect } from 'react';
 import Image from 'next/image';
 import email from '../Assets/email.png';
 import socialmediamarketing from "../Assets/socialmediamarketing.png"
-import { initScrollReveal } from '../AboutUs-Components/ScrollReveal';
 import styles from "../Assets/css.module.css"
 interface handleselectedid {
   handleselectedid: (id: number) => void;
@@ -12,10 +11,6 @@ interface handleselectedid {
 const CampaignMessageGalleryPhotos: React.FC<handleselectedid> = ({ handleselectedid }) => {
 
   const [selectedId, setSelectedId] = useState<number | null>(1);
-  useEffect(()=>{
-    initScrollReveal()
-  },[])
-
   const objects = [
     {
       id: 1,
