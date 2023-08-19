@@ -37,7 +37,7 @@ export default function page() {
     job: values.job,
     governorate: values.governorate,
     };
-    await submitForm({formdata:formData,path:'sdsdfsdfs'});
+    await submitForm({formdata:formData,path:'https://sheetdb.io/api/v1/rha48nezvoxoo'});
   };
     const customInputStyle: React.CSSProperties = {
     backgroundColor: 'transparent',
@@ -58,7 +58,12 @@ export default function page() {
   };
   const validationSchema = Yup.object({
     name: Yup.string().required("الاسم مطلوب"),
-    age: Yup.string().required("العمر مطلوب"),
+    age: Yup.number()
+    .required('العمر مطلوب')
+    .positive('يجب ان يكزن العمر اكبر من صفر')
+    .integer('يجب ان يكون العمر عدد صحيح')
+    .min(0, 'يجب ان يكون العمر اكبر من صفر')
+    .max(150, 'يجب ان يكون العمر اقل من 150'),
     personalNumber: Yup.string().required("الرقم الشخصي مطلوب"),
     telegram: Yup.string().required("معرف التلكرام مطلوب"),
     gender: Yup.string().required("الجنس مطلوب"),
@@ -219,8 +224,8 @@ export default function page() {
   );
 }
   const renderErrorMessage = (errormsg: string) => (
-    <div className="flex flex-row items-center justify-center border-2 border-gray-400 border-opacity-50 rounded-3xl ">
-      <span className="mx-2 bg-black">{errormsg}</span>
+    <div className="flex flex-row items-center justify-center  rounded-3xl ">
+      <span className="mx-2 bg-transparent">{errormsg}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
