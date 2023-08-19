@@ -1,18 +1,226 @@
 "use client";
 import React from "react";
 import bgimg from "./girl.jpeg";
-import letter from "./letter.png";
 import Image from "next/image";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import PhoneInput from "react-phone-input-2";
-import flags from "react-phone-number-input/flags";
-import "react-phone-input-2/lib/style.css"; // Import the styles
+import "react-phone-input-2/lib/style.css";
+import { cities } from "@/global/utils/cities";
+import usePostForm from "../campaigns/components/usePostForm";
+import { FaEnvelope, FaPhone, FaPhoneAlt } from 'react-icons/fa';
+
+export interface IJoinFormData {
+ name: string;
+  age: number | undefined; 
+  personalNumber: string;
+  telegram: string;
+  msg: string;
+  gender: string;
+  job: string;
+  governorate: string;
+}
+const jobs=["طالب","موضف","باحث عن عمل","اخرى"]
+const gender=["ذكر","انثى"]
+
 
 function page() {
+      const { loading, error, success, submitForm } = usePostForm();
+    const handleSubmit = async (values: IJoinFormData) => {
+    const formData: IJoinFormData = {
+  name: values.name,
+    age: values.age,
+    personalNumber: values.personalNumber,
+    telegram: values.telegram,
+    msg: values.msg,
+    gender: values.gender,
+    job: values.job,
+    governorate: values.governorate,
+    };
+    await submitForm({formdata:formData,path:'sdsdfsdfs'});
+  };
+    const customInputStyle: React.CSSProperties = {
+    backgroundColor: 'transparent',
+    width:"100%",
+    border:"none"
+
+  };
+
+  const initialValues = {
+   name: '',
+    age: undefined, 
+    personalNumber: '',
+    telegram: '',
+    msg: '',
+    gender: '',
+    job: '',
+    governorate: '',
+  };
+  const validationSchema = Yup.object({
+    name: Yup.string().required("الاسم مطلوب"),
+    age: Yup.string().required("العمر مطلوب"),
+    personalNumber: Yup.string().required("الرقم الشخصي مطلوب"),
+    telegram: Yup.string().required("معرف التلكرام مطلوب"),
+    gender: Yup.string().required("الجنس مطلوب"),
+    job: Yup.string().required("المهنة مطلوبة"),
+    governorate: Yup.string().required("المحافظة مطلوبة"),
+  });
+
+
+  return (
+      <div className="w-screen h-fit overflow-hidden my-20">
+        <div className="flex flex-row justify-between items-center  rounded-2xl overflow-hidden bg-black md:bg-nutral mx-auto w-[90%] h-fit md:h-screen">
+          <ImageSection/>
+        <div className="w-full  mx-auto ">
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={handleSubmit}
+          >
+            <Form className=" relative flex flex-col items-center gap-10 justify-center w-full p-10 text-white md:text-gray1">
+            <div className=" md:hidden w-full h-full absolute top-0 left-0">
+            <Image
+              src={bgimg}
+              alt=""
+              className="object-cover opacity-10 aspect-auto h-full"
+            />
+          </div>
+
+           <div className="flex flex-col md:flex-row gap-10 w-full">
+            <div className="flex flex-col w-full items-end">
+              <label htmlFor="age" className="text-sm">
+                العمر
+              </label>
+              <Field
+                name="age"
+                type="number"
+                id="age"
+                className=" text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
+              />
+              <ErrorMessage name="age" render={renderErrorMessage} />
+            </div>
+            <div className="flex flex-col w-full items-end">
+              <label htmlFor="name" className="text-sm">
+                الاسم
+              </label>
+              <Field
+                name="name"
+                type="text"
+                id="name"
+                className=" text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
+              />
+              <ErrorMessage name="name" render={renderErrorMessage} />
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-10 items-center w-full">
+            <div className="flex flex-col w-full items-end">
+              <label htmlFor="personalNumber" className=" text-sm">
+                رقم الهاتف 
+              </label>
+              <div className="w-full bg-transparent border-b-2 border-gray-400 border-opacity-50  ">
+            <Field
+              name="personalNumber"
+              render={({ field, form }:{field:any,form:any}) => (
+                <PhoneInput
+                  inputStyle={customInputStyle}
+                  country="iq"
+                  value={field.value}
+                  onChange={(value) => form.setFieldValue('personalNumber', value)}
+                />
+              )}
+            />
+            <ErrorMessage name="personalNumber" component="div" />
+              </div>
+            </div>
+            <div className="flex flex-col w-full items-end ">
+             <label htmlFor="telegram" className="text-sm">
+                معرف التلكرام
+              </label>
+              <Field
+                name="telegram"
+                type="text"
+                id="telegram"
+                className="text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
+              />
+              <ErrorMessage name="telegram" render={renderErrorMessage} />
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-10 items-center w-full">
+            <div className="flex flex-col w-full items-end">
+              <label htmlFor="job" className=" text-sm mb-2">
+               المهنة
+              </label>
+              <div className="w-full bg-transparent b ">
+            <Field
+              as="select"
+              name="job"
+                className="text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
+            >
+            <option disabled={true} value="">اختر</option>
+            {jobs.map((job)=> (<option key={job} value={job}>{job}</option>))}</Field>
+            <ErrorMessage name="job" component="div" />
+              </div>
+            </div>
+            <div className="flex flex-col w-full items-end">
+              <label htmlFor="gender" className=" text-sm mb-2">
+               الجنس
+              </label>
+              <div className="w-full bg-transparent b ">
+            <Field
+              as="select"
+              name="gender"
+              id="gender"
+                className="text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
+            >
+            <option disabled={true} value="">اختر</option>
+            {gender.map((item)=> (<option key={item} value={item}>{item}</option>))}</Field>
+            <ErrorMessage name="gender" component="div" />
+              </div>
+            </div>
+          </div>
+
+
+
+          <div className="flex flex-col md:flex-row gap-10 items-center w-full">
+            <div className="flex flex-col w-full items-end">
+                    <label htmlFor="governorate" className="mb-2 text-sm">
+                    المحافظة{" "}
+                  </label>
+                  <Field
+                    name="governorate"
+                    id="governorate"
+                    as="select"
+                    className="w-full text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md"
+                  >
+                     <option disabled={true} value="">اختر</option>
+                    {cities.map((city)=> (<option key={city} value={city}>{city}</option>))}
+                  </Field>
+
+            <ErrorMessage name="governorate" component="div" />
+              <p className="my-10 text-xs text-gray4 md:text-gray2 text-right">
+                    المحافظة الي راح تشارك بتنظيفها   (مو شرط نفسها
+                    محافظة السكن)
+                  </p>
+              </div>
+            </div>
+         <button
+              type="submit"
+              disabled={loading}
+              className="bg-secondary text-light font-bold px-2 md:px-4 rounded-md h-fit my-auto py-1 text-md md:text-lg w-fit ">
+              {loading?"...جاري الارسال":"ارسل"}
+            </button>         
+            </Form>
+          </Formik>
+        </div>
+        </div>
+    </div>
+  );
+}
   const renderErrorMessage = (errormsg: string) => (
-    <div className="flex flex-row items-center justify-center border-2 border-gray-400 border-opacity-50 rounded-lg">
-      <span className="mx-2">{errormsg}</span>
+    <div className="flex flex-row items-center justify-center border-2 border-gray-400 border-opacity-50 rounded-3xl ">
+      <span className="mx-2 bg-black">{errormsg}</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -29,225 +237,38 @@ function page() {
       </svg>
     </div>
   );
-  const initialValues = {
-    name: "",
-    age: 0,
-    personalNumber: "",
-    telegram: "",
-    msg: "",
-    gender: "",
-    job: "",
-    governorate: "",
-  };
-  const validationSchema = Yup.object({
-    name: Yup.string().required("الاسم مطلوب"),
-    age: Yup.string().required("العمر مطلوب"),
-    personalNumber: Yup.string().required("الرقم الشخصي مطلوب"),
-    telegram: Yup.string().required("معرف التلكرام مطلوب"),
-    gender: Yup.string().required("الجنس مطلوب"),
-    job: Yup.string().required("المهنة مطلوبة"),
-    governorate: Yup.string().required("المحافظة مطلوبة"),
-  });
-  const onSubmit = (values: any) => {
-    console.log(values);
-  };
 
+export default page;
+
+
+export const ImageSection = () => {
   return (
-    <div className="">
-      <div className=" h-screen flex justify-center items-center overflow-hidden m-10 lg:m-20 rounded-2xl bg-[#f3f7f5]">
-        <div className="relative hidden w-1/3 h-full lg:flex">
+    <div className="hidden md:block w-full  h-full">
+          <div className="relative w-full h-full ">
+          <div className="flex h-full bg-black absolute top-0 left-0">
+            <Image
+              src={bgimg}
+              alt=""
+              className="object-cover opacity-40 aspect-auto"
+            />
+          </div>
           <div className="absolute top-0 left-0 flex flex-col items-end justify-around w-full h-full p-4 words text-overlay">
-            <div className="flex w-full">
-              <div className="w-1/2"></div>
-              <h1 className="w-1/2 mb-4 text-2xl font-bold text-right text-white">
+        <p className=" text-2xl font-normal text-right text-white px-4 py-2 bg-transparent border-light border-[1px] rounded rounded-tl-3xl">
                 خليك ويانا
-              </h1>
-            </div>
-            <div className="flex w-full">
-              <div className="w-1/2">
-                <div className="flex flex-col items-start justify-between socials">
-                  <p className="text-white">email@gmail.com</p>
-                  <p className="text-white"> +964 123 456 789</p>
+              </p>
+        <div className=" absolute bottom-10 left-4 flex flex-col gap-2 items-start justify-between socials opacity-100 text-opacity-100">
+                  <span className="flex items-center gap-4 text-white"><FaEnvelope /><p> email@gmail.com</p></span>
+                  <span className="flex items-center gap-4 text-white"><FaPhoneAlt /><p> +964 123 456 789</p></span>
                 </div>
-                <div className="w-1/2"></div>
-              </div>
-            </div>
             <div className="flex">
               <div className="w-1/5 qr"></div>
             </div>
           </div>
-          <div className="flex h-full bg-black ">
-            <Image
-              src={bgimg}
-              alt=""
-              className="object-cover opacity-50 aspect-auto"
-            />
-          </div>
-        </div>
 
-        <div className="w-2/3 h-full p-10">
-          <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={onSubmit}
-          >
-            <Form className="flex flex-col items-center justify-center w-full">
-              <div className="flex flex-col items-center justify-center w-full m-5 rOne lg:flex-row">
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <label htmlFor="input1" className="mb-2 text-sm">
-                    الاسم
-                  </label>
-                  <Field
-                    name="name"
-                    type="text"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  />
-                  <ErrorMessage name="name" render={renderErrorMessage} />
-                </div>
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <label htmlFor="input2" className="mb-2 text-sm">
-                    العمر
-                  </label>
-                  <Field
-                    name="age"
-                    type="number"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  />
-                  <ErrorMessage name="age" render={renderErrorMessage} />
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center w-full m-5 rTwo lg:flex-row">
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <label htmlFor="input1" className="mb-2 text-sm">
-                    الرقم الشخصي
-                  </label>
-                  <div className="bg-transparent border-2 border-gray-400 border-opacity-50 rounded-lg w-72 lg:w-96 ">
-                    <PhoneInput
-                      country={"iq"}
-                      value={initialValues.personalNumber}
-                      onChange={(value) => {
-                        initialValues.personalNumber = value;
-                      }}
-                    />
-                  </div>
-
-                  {/* <Field
-                    name="personalNumber"
-                    type="text"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  /> */}
-                  <ErrorMessage
-                    name="personalNumber"
-                    render={renderErrorMessage}
-                  />
-                </div>
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <label htmlFor="input2" className="mb-2 text-sm">
-                    معرف التلكرام
-                  </label>
-                  <Field
-                    name="telegram"
-                    type="text"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  />
-                  <ErrorMessage name="telegram" render={renderErrorMessage} />
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center w-full m-5 rThree lg:flex-row">
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <label htmlFor="input1" className="mb-2 text-sm">
-                    الجنس
-                  </label>
-                  <Field
-                    as="select"
-                    name="gender"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  >
-                    <option disabled value="">
-                      اختر
-                    </option>
-                    <option value="male">ذكر</option>
-                    <option value="female">انثى</option>
-                  </Field>
-                </div>
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <label htmlFor="input2" className="mb-2 text-sm">
-                    المهنة{" "}
-                  </label>
-                  <Field
-                    name="job"
-                    as="select"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  >
-                    <option disabled value="">
-                      اختر
-                    </option>
-                    <option value="student">طالب</option>
-                    <option value="employee">موظف</option>
-                    <option value="unemployed">عاطل عن العمل</option>
-                    <option value="other">اخرى</option>
-                  </Field>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center w-full m-5 rThree lg:flex-row">
-                <div className="flex flex-col items-end justify-center w-full max-w-md"></div>
-                <div className="flex flex-col items-end justify-center w-full max-w-md">
-                  <p className="my-10 text-xs text-right">
-                    المحافظة الي راح تشارك بتنظيفها هذا الاسبوع (مو شرط نفسها
-                    محافظة السكن)
-                  </p>
-                  <label htmlFor="input2" className="mb-2 text-sm">
-                    المحافظة{" "}
-                  </label>
-                  <Field
-                    name="governorate"
-                    as="select"
-                    className="m-5 text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-72 lg:w-96"
-                  >
-                    <option disabled value="">
-                      اختر
-                    </option>
-                    <option value="Baghdad">بغداد</option>
-                    <option value="Erbil">اربيل</option>
-                    <option value="Anbar">انبار</option>
-                    <option value="Babylon">بابل</option>
-                    <option value="Basra">بصرة</option>
-                    <option value="Duhoq">دهوك</option>
-                    <option value="Diyala">ديالى</option>
-                    <option value="Qadisiyyah">قادسية</option>
-                    <option value="Dhi Qar">ذي قار</option>
-                    <option value="Sulaymaniyah">سليمانية</option>
-                    <option value="Salah ad Din">صلاح الدين</option>
-                    <option value="Kirkuk">كركوك</option>
-                    <option value="Karbala">كربلاء</option>
-                    <option value="Maysan">ميسان</option>
-                    <option value="Muthanna">مثنى</option>
-                    <option value="Najaf">نجف</option>
-                    <option value="Ninawa">نينوى</option>
-                    <option value="Wasit">واسط</option>
-                  </Field>
-                  <button
-                  type="submit"
-                  className="w-40 px-2 py-1 my-auto mt-5 text-lg font-bold rounded-lg bg-secondary text-light h-14"
-                >
-                  أرسل
-                </button>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center w-full">
-                
-              </div>
-            </Form>
-          </Formik>
-          
         </div>
-      </div>
     </div>
-  );
+  )
 }
-
-export default page;
-
 
 
 {/* <div className="flex flex-row-reverse items-center justify-center my-6 mb-12 content">

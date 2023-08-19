@@ -9,7 +9,7 @@ import usePostForm from "@/app/campaigns/components/usePostForm";
 
 export interface IContactFormData {
   name: string;
-  age: number;
+  age: number | undefined;
   personalNumber: string;
   telegram: string;
   msg: string;
@@ -37,7 +37,7 @@ function MyForm() {
 
   const initialValues = {
     name: '',
-    age: 0,
+    age: undefined,
     personalNumber: '',
     telegram: '',
     msg: '',
