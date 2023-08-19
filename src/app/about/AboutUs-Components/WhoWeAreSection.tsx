@@ -1,6 +1,5 @@
 'use client'
-import React, {useEffect} from 'react'
-
+import React from 'react'
 import Image from 'next/image';
 import WhoWeAreSectionphoto1 from "../Assets/WhoWeAreSectionphoto1.jpg"
 import WhoWeAreSectionphoto2 from "../Assets/WhoWeAreSectionphoto2.jpg"
@@ -10,12 +9,8 @@ import litter from "../Assets/litter.png"
 import nolitteringsign from "../Assets/nolitteringsign.png"
 import plastic from "../Assets/plastic.png"
 import styles from "../Assets/css.module.css"
-import { initScrollReveal } from '../AboutUs-Components/ScrollReveal';
 
 const WhoWeAreSection:React.FC = () => {
-  useEffect(()=>{
-    initScrollReveal()
-  },[])
   return (
     <section id='whoweare' className='min-h-screen  flex flex-col items-center w-[98%] md:w-[90%]  mx-auto mt-1 rounded-3xl  p-8 pl-9 pr-9 bg-[#fffdfa] '>
 
