@@ -24,7 +24,7 @@ const jobs=["طالب","موضف","باحث عن عمل","اخرى"]
 const gender=["ذكر","انثى"]
 
 
-function page() {
+export default function page() {
       const { loading, error, success, submitForm } = usePostForm();
     const handleSubmit = async (values: IJoinFormData) => {
     const formData: IJoinFormData = {
@@ -238,10 +238,9 @@ function page() {
     </div>
   );
 
-export default page;
 
 
-export const ImageSection = () => {
+const ImageSection = () => {
   return (
     <div className="hidden md:block w-full  h-full">
           <div className="relative w-full h-full ">
