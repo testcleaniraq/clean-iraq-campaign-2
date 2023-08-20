@@ -6,9 +6,23 @@ import { SocialLinks } from './SocialLinks';
 import { FooterColumn } from './FooterColumn';
 import NewsletterSection from './NewsLetterSection';
 import { ROUTES } from '@/app/routes';
+import MyModal from '../MyModal';
+import { useState } from 'react';
 
 export default function Footer() {
     const isTabletOrMobile = useMediaQuery('(max-width: 768px)');
+     const [showModal, setShowModal] = useState(false);
+
+  function openModal() {
+    console.log('opening modal');
+    setShowModal(true);
+  }
+
+  function closeModal() {
+    console.log('closing Modal');
+    setShowModal(false);
+  }
+
 
   const FOOTER_CONTENT={
     social:[
@@ -19,23 +33,25 @@ export default function Footer() {
     nav:[{
       title:"عن سفراء النضافة",
       links:[
-        {text:"من نحن",link:ROUTES.about},
-        {text:"الحملات",link:ROUTES.campaigns},
-        {text:"المدونة",link:ROUTES.blog},
-      ]
-    },
-   {
+        {text:"من نحن",link:ROUTES.about,onClick:undefined},
+        {text:"الحملات",link:ROUTES.campaigns,onClick:undefined},
+        {text:"المدونة",link:ROUTES.blog,onClick:undefined},
+
+      ]},
+  {
       title:"ساهم",
        links:[
-        {text:"انضم للحملات",link:ROUTES.join},
-        {text:"اقترح حملة",link:ROUTES.campaigns},
-        {text:"تواصل معنا",link:ROUTES.contact},
+        {text:"انضم للحملات",link:ROUTES.join,onClick:undefined},
+        {text:"اقترح حملة",link:ROUTES.campaigns,onClick:undefined},
+        {text:"تواصل معنا",link:ROUTES.contact,onClick:undefined},
+        {text:"تبرع",link:"",onClick:openModal},
       ]
     }],
   }
   return (
  
   <footer className="bg-gray1 py-10 w-screen px-5 text-gray4" > 
+  {showModal && <MyModal closeModal={closeModal}/>}
   {!isTabletOrMobile?( <div className="grid grid-cols-6 gap-4">
    <div className='col-span-2'>
     <NewsletterSection/>

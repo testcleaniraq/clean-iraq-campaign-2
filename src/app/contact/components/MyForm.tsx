@@ -6,6 +6,10 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css"; // Import the styles
 import usePostForm from "@/app/campaigns/components/usePostForm";
+import FormInput from "@/global/components/FormInput";
+import PhoneNumberInput from "@/global/components/PhoneNumberInput";
+import TextareaInput from "@/global/components/TextareaInput";
+import FormButton from "@/global/components/FormButton";
 
 export interface IContactFormData {
   name: string;
@@ -66,85 +70,20 @@ function MyForm() {
         <Form className="flex flex-col items-center w-full gap-10 p-16 bg-nutral rounded-2xl ">
           <div className="flex flex-col md:flex-row gap-10 w-full">
             <div className="flex flex-col w-full items-end">
-              <label htmlFor="age" className="text-sm">
-                العمر
-              </label>
-              <Field
-                name="age"
-                type="number"
-                id="age"
-                className=" text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
-              />
-              <ErrorMessage name="age" render={renderErrorMessage} />
-            </div>
-            <div className="flex flex-col w-full items-end">
-              <label htmlFor="name" className="text-sm">
-                الاسم
-              </label>
-              <Field
-                name="name"
-                type="text"
-                id="name"
-                className=" text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
-              />
-              <ErrorMessage name="name" render={renderErrorMessage} />
-            </div>
+            <FormInput text="العمر" type="number" name="age" placeholder=""/>
+             <FormInput text="الاسم" type="text" name="name" placeholder=""/>
+          </div>
           </div>
           <div className="flex flex-col md:flex-row gap-10 items-center w-full">
-            <div className="flex flex-col w-full items-end">
-              <label htmlFor="personalNumber" className=" text-sm">
-                رقم الهاتف 
-              </label>
-              <div className="w-full bg-transparent border-b-2 border-gray-400 border-opacity-50  ">
-          <Field
-            name="personalNumber"
-            render={({ field, form }:{field:any,form:any}) => (
-              <PhoneInput
-                inputStyle={customInputStyle}
-                country="iq"
-                value={field.value}
-                onChange={(value) => form.setFieldValue('personalNumber', value)}
-              />
-            )}
-          />
-          <ErrorMessage name="personalNumber" component="div" />
-              </div>
-            </div>
-            <div className="flex flex-col w-full items-end ">
-             <label htmlFor="telegram" className="text-sm">
-                معرف التلكرام
-              </label>
-              <Field
-                name="telegram"
-                type="text"
-                id="telegram"
-                className="text-right transition-shadow duration-300 bg-transparent border-b-2 border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
-              />
-              <ErrorMessage name="telegram" render={renderErrorMessage} />
-            </div>
+           <PhoneNumberInput text="رقم الهاتف" name="personalNumber"/>
+             <FormInput text=" معرف التلكرام" type="text" name="name" placeholder=""/>
           </div>
           <div className="flex flex-col md:flex-row gap-10 items-center w-full">
-            <div className="flex flex-col w-full items-end ">
-             <label htmlFor="msg" className="text-sm">
-                رسالتك
-              </label>
-              <Field
-                name="msg"
-                type="textarea"
-                rows={3}
-                as="textarea"
-                id="msg"
-                className="text-right transition-shadow duration-300 bg-transparent border-2 rounded-lg border-gray-400 border-opacity-50 focus:border-black focus:outline-none focus:shadow-md w-full"
-              />
-              <ErrorMessage name="msg" render={renderErrorMessage} />
-              </div>
+           <TextareaInput text="رسالتك" name="msg" rows={3} placeholder=""/>
+
           </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="bg-secondary text-light font-bold px-2 md:px-4 rounded-md h-fit my-auto py-1 text-md md:text-lg w-fit ">
-              {loading?"...جاري الارسال":"ارسل"}
-            </button>        </Form>
+         <FormButton isLoading={loading}/>
+             </Form>
       </Formik>
     </div>
   );

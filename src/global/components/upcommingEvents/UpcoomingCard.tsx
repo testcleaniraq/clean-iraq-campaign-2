@@ -19,7 +19,7 @@ export default function UpcommingCard({isEven}:{isEven:boolean}) {
           <p>2023</p>
         </div>
         <div className="relative  h-24 md:h-32 w-full ">
-           <Image src={HeroImage} alt=""  className="w-full h-full"/>
+           <Image src={HeroImage} alt=""  className="w-full h-full object-cover"/>
            <div className="absolute flex justify-end items-end w-full h-full bottom-0 right-0 bg-opacity-30  bg-black">
             <span className="flex items-center text-light font-medium  opacity-100 px-4 py-2 gap-2 "><h6>الديوانية</h6> <FontAwesomeIcon icon={faBuilding}/></span>
            </div>
@@ -29,7 +29,7 @@ export default function UpcommingCard({isEven}:{isEven:boolean}) {
           <div className="flex gap-2 items-center text-sm"> <span> 5:00 pm</span><FontAwesomeIcon icon={faClock} className="text-secondary"/></div>
           <div className="flex gap-2 items-center"> <Link href={mapUrl} key={mapUrl} className="underline">الموقع</Link><FontAwesomeIcon icon={faMapPin} className="text-secondary"/></div>
           <Link href={ROUTES.join}>
-          <button className="bg-transparent border border-secondary rounded-md text-secondary font-normal px-2  text-md my-2"
+          <button className="bg-transparent border  border-secondary rounded-md text-secondary font-normal px-2  text-md my-2"
           >انضم للحملة</button>
           </Link>
         </div>
