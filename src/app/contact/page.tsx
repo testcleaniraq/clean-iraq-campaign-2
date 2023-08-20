@@ -1,7 +1,10 @@
+'use client'
 import React from "react";
 import bgimg from "./bgimg.png";
 import Image from "next/image";
 import MyForm from "./components/MyForm";
+import MapComponent from "./components/MapComponent";
+import locations from "./formatted_data.json";
 
 function page() {
   return (
@@ -19,6 +22,9 @@ function page() {
         </h1>
         <section className=" w-[80%] md:w-[50%] h-auto mb-20">
           <MyForm />
+        </section>
+        <section className="mb-40 border-4 border-secondary map rounded-3xl">
+          <MapComponent data={locations}  />
         </section>
       </div>
     </div>
