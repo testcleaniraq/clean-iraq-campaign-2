@@ -14,11 +14,11 @@ const PhoneNumberInput = ({text,name}:{text:string,name:string}) => {
   };
 
   return (
-     <div className="flex flex-col w-full items-end bg-transparent mt-0">
+     <div className="flex flex-col w-full items-end bg-transparent mt-0 ">
              <label htmlFor={name} className=" text-sm mb-2">
              {text}
              </label>
-        <div className="flex items-center border border-gray-300 px-3 py-1 rounded-md">
+        <div className="flex items-center justify-end border border-gray-300 px-3 py-1 rounded-md w-full ">
       <div>
         <Field
           type="text"
@@ -29,7 +29,7 @@ const PhoneNumberInput = ({text,name}:{text:string,name:string}) => {
         />
       </div>
          <select
-          className="bg-transparent text-end border-l border-gray-300 ml-2"
+          className="bg-transparent border-l border-gray-300 ml-2 w-fit items-end text-end"
           value={phoneNumber.countryCode}
           onChange={(e) => handlePhoneNumberChange({ ...phoneNumber, countryCode: e.target.value })}
         >
