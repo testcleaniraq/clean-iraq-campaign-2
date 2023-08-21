@@ -38,7 +38,7 @@ const MeetOurTeamSection = () => {
         {
             id:2,
             photo:supervisor1221,
-            name:'محمد',
+            name:'حسن',
             facebook:"https://www.facebook.com/AzizAhsaan2/",
             job:"front-end devewqelper",
 
@@ -56,7 +56,7 @@ const MeetOurTeamSection = () => {
         {
             id:4,
             photo:supervisor4,
-            name:'حسين',
+            name:"محمد",
             facebook:"https://www.facebook.com/AzizAhsaan2/",
             job:"front-end develper",
 
@@ -71,7 +71,7 @@ const MeetOurTeamSection = () => {
   job:"front-end develper",
 
   facebook:"https://www.facebook.com/AzizAhsaan2/",
-  photo: supervisor122,
+  photo: murtadah,
     })
     const changehtml=(photoid:number)=>{
         object.map((person: Object)=>{
@@ -85,8 +85,8 @@ const MeetOurTeamSection = () => {
     <section id='OurTeam' className='min-h-screen flex flex-col w-[98%] md:w-[90%]  mx-auto mt-5 rounded-3xl  items-center p-8 pl-9 pr-9 '>
       <h1 id='MeetOurTeamText' className='xl:text-[4rem] lg:text-[3.5rem] md:text-[3rem] 2sm:text-[2.0rem] 2sm:mt-[4rem] xl:mr-[4rem] text-secondary font-bold'>التقي بفريقنا</h1>
       <div className=' xl:block lg:block md:block 2sm:hidden xl:w-[29rem] xl:mr-[3rem] lg:w-[28rem] md:w-[25rem] 2sm:w-[13rem]  h-[0.10rem] bg-secondary mt-[2rem]'></div>
-      <div className='h-3/4 w-full  flex xl:flex-row lg:flex-row md:flex-row 2sm:flex-col justify-center items-center '>
-        <div id='SectionPhotoMeetOurTeam' className='w-2/4	 flex justify-end items-end  '>
+      <div className='flex items-center justify-center w-full h-3/4 xl:flex-row lg:flex-row md:flex-row 2sm:flex-col '>
+        <div id='SectionPhotoMeetOurTeam' className='flex items-end justify-end w-2/4 '>
           <div className='flex justify-center items-center xl:w-[20rem] xl:h-[20rem] lg:w-[20rem] lg:h-[20rem] md:w-[15rem] md:h-[15rem] 2sm:w-[8rem] 2sm:h-[8rem]  lg:ml-[10rem] md:ml-[6rem] 2sm:mt-[1.2rem]   '>
           {newperson.photo ? (
                   <Image src={newperson.photo} alt='photo' className={`w-full h-full xl:rounded-[0rem] lg:rounded-[0rem] md:rounded-[0rem] 2sm:rounded-[10rem]  object-cover ${styles.bordermeetourteam} `} />
@@ -97,7 +97,7 @@ const MeetOurTeamSection = () => {
         </div>
         <div className=' xl:block lg:block md:block 2sm:hidden   xl:h-[30rem] lg:h-[25rem] md:h-[25rem] 2sm:h-[15rem] border-l-[0.2rem] bg xl:ml-[10rem] lg:ml-[6rem] md:ml-[3rem]    border-secondary mt-[2rem]'></div>
         <div id='SectionContentMeetOurTeam' className='w-2/4 xl:ml-[10rem] lg:ml-[1rem] lg:mr-[9rem] md:mr-[1rem] 2sm:mr-[11rem] 2sm:mt-[2rem]	 h-full  flex justify-start items-start  '>
-          <div className='flex flex-col justify-start items-center'>
+          <div className='flex flex-col items-center justify-start'>
             <h1 className='xl:text-[4rem] lg:text-[4rem] md:text-[3rem] 2sm:text-[2rem]'>{newperson.name}</h1>
             <div className='w-[10rem]  border-[0.1rem]  border-secondary mt-[0.6rem] mb-[0.5rem]'></div>
             <h1 className='xl:text-[2rem] lg:text-[2rem] md:text-[1.5rem] 2sm:text-[1rem]'> {newperson.job}</h1>
@@ -131,7 +131,7 @@ const MeetOurTeamSection = () => {
                   <span>No photo available</span>
                 )}
                  </div>
-                 <div className={`bg-secondary text-light font-bold px-2  my-auto py-1 rounded-md xl:w-[7rem] xl:h-[2.0rem] lg:w-[7rem] lg:h-[2.0rem] md:w-[7rem] md:h-[2.0rem] 2sm:w-[4rem] 2sm:h-[2.0rem]  flex justify-center mt-[1rem] ${newperson.id===person.id?'xl:w-[8rem] xl:h-[2.5rem] ease-in duration-300':''}` } ><button onClick={() => person.id !==undefined && changehtml(person.id)}  className='text-white font-extrabold'>{person.name}</button></div>
+                 <div className={`bg-secondary text-light font-bold px-2  my-auto py-1 rounded-md xl:w-[7rem] xl:h-[2.0rem] lg:w-[7rem] lg:h-[2.0rem] md:w-[7rem] md:h-[2.0rem] 2sm:w-[4rem] 2sm:h-[2.0rem]  flex justify-center mt-[1rem] ${newperson.id===person.id?'xl:w-[8rem] xl:h-[2.5rem] ease-in duration-300':''}` } ><button onClick={() => person.id !==undefined && changehtml(person.id)}  className='font-extrabold text-white'>{person.name}</button></div>
              </div>
              
             ))}
