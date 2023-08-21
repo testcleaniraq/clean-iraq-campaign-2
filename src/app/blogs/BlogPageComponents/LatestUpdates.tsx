@@ -99,53 +99,55 @@ const LatestUpdates = () => {
       }
   return (
     <section className='min-h-screen  flex flex-col items-center   p-3 pl-2 pr-2 pb-[3rem] 2xl:w-[60rem] xl:w-[60rem] lg:w-[51rem] md:w-[37rem] 2sm:w-[16.5rem]  mb-[5rem]  mx-auto mt-5 rounded-3xl bg-[#f6f6f6]'>
-      <div className='w-full flex flex-col items-center mt-[5rem] '>
+      <div className='w-full flex flex-col items-center mt-[5rem]  '>
       <div className=' w-full h-1/6 flex flex-row justify-between items-center  '>
-     <form className='flex 2xl:w-[35rem] xl:w-[35rem] lg:w-[35rem] md:w-[35rem] 2sm:w-[5rem]  justify-first h-full   2xl:flex-row xl:flex-row lg:flex-row md:flex-col 2sm:flex-col'>
-        <div className='flex  2xl:w-[5rem] xl:w-[5rem]  lg:w-[5rem] md:w-[5rem] 2sm:w-[6rem]  '>
-          <span className='2xl:text-[1.5rem] xl:text-[1.5rem] lg:text-[1.5rem] lg:ml-[1rem] md:text-[1.5rem] 2sm:text-[0.9rem] font-bold  text-end '>بحث</span>
-          <input onChange={handleChange} value={article.query} placeholder='اسم المقالة' type="search" className='2xl:h-[2.5rem] 2xl:w-[9rem]  xl:h-[2.5rem] xl:w-[9rem] lg:h-[2.5rem] lg:w-[9rem] md:h-[2.5rem] md:w-[9.05rem] 2sm:h-[1.5rem] 2sm:w-[5rem] 2xl:ml-[1rem] xl:ml-[1rem] lg:ml-[1rem] md:ml-[2.2rem] 2sm:ml-[2.2rem]  '/>          
+     <form className='flex 2xl:w-[35rem] xl:w-[35rem] lg:w-[35rem] bg md:w-[35rem] 2sm:w-[5rem]   justify-first h-full   2xl:flex-row xl:flex-row lg:flex-row md:flex-col 2sm:flex-col'>
+        <div className='flex  2xl:w-[5rem] xl:w-[5rem]  lg:w-[5rem] md:w-[5rem] 2sm:w-[6rem] '>
+          <input onChange={handleChange} value={article.query} placeholder='اسم المقالة' type="search" className='2xl:h-[2.5rem] 2xl:w-[9rem]  xl:h-[2.5rem] xl:w-[9rem] lg:h-[2.5rem] lg:w-[9rem] md:h-[2.5rem] md:w-[9.05rem] 2sm:h-[1.5rem] 2sm:w-[5.4rem] 2xl:ml-[1rem] xl:ml-[1rem] lg:ml-[1rem] md:ml-[2.2rem] 2sm:ml-[0.9rem] placeholder:text-right border border-white focus:outline-none focus:border-secondary 2xl:px-1.5 xl:px-1.5 lg:px-1.5 md:px-1.5 2sm:pl-[0.8rem] py-2 rounded-lg  '/>
+          <span className='2xl:text-[1.5rem] xl:text-[1.5rem] lg:text-[1.5rem] lg:ml-[1rem] md:text-[1.5rem] 2sm:text-[0.9rem] 2sm:ml-[1rem]   text-end  '>بحث</span>
+          
         </div>
         
         
-        <div className='flex items-center flex-row 2xl:mt-[0rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[1rem] 2sm:mt-[1rem]  2xl:ml-[13rem] xl:ml-[13rem] lg:ml-[13rem] 2sm:w-[10rem] md:w-[16rem] 2xl:w-[16rem] xl:w-[16rem] lg:w-[16rem]   '>
-          <span className=' 2xl:text-[1.2rem] xl:text-[1.2rem] md:text-[1.2rem] 2sm:text-[0.8rem]  font-bold 2sm:mt-[0.3rem]   '>فرز حسب</span>
-          <select className=' 2xl:h-[2.5rem] 2xl:w-[9rem] xl:h-[2.5rem] xl:w-[9rem] lg:h-[2.5rem] lg:w-[9rem] md:h-[2.5rem] md:w-[9rem] 2sm:h-[1.5rem] 2sm:w-[5rem] 2xl:ml-[1.5rem] xl:ml-[1.5rem] lg:ml-[1.5rem] md:ml-[0.4rem] 2sm:ml-[0.9rem]  ' defaultValue={'DEFAULT'} onChange={(e) => updatePosts(e.target.value as "ascending" | "descending")}>
-            <option value="DEFAULT" disabled>ترتيب حسب</option>
-            <option value="ascending">تصاعديا</option>
-            <option value="descending">تنازليا</option>
+        <div className='flex items-center flex-row 2xl:mt-[0rem] xl:mt-[0rem] lg:mt-[0rem] md:mt-[1rem] 2sm:mt-[1rem]  2xl:ml-[13rem] xl:ml-[13rem] lg:ml-[13rem] md:ml-[1.8rem]  2sm:w-[10rem] md:w-[16rem] 2xl:w-[16rem] xl:w-[16rem] lg:w-[16rem] '>
+          <select className=' 2xl:h-[2.5rem] 2xl:w-[9rem] xl:h-[2.5rem] xl:w-[9rem] lg:h-[2.5rem] lg:w-[9rem] md:h-[2.5rem] md:w-[9rem] 2sm:h-[2rem] 2sm:w-[5.4rem] 2xl:ml-[1.5rem] xl:ml-[1.5rem] lg:ml-[1.5rem] md:ml-[0.4rem] 2sm:ml-[0.9rem] px-1.5 py-2 rounded-lg placeholder:text-right border border-white focus:outline-none focus:border-secondary 2xl:text-[1rem] xl:text-[1rem] lg:text-[1rem] md:text-[1rem] 2sm:text-[0.9rem]   ' defaultValue={'DEFAULT'} onChange={(e) => updatePosts(e.target.value as "ascending" | "descending")}>
+            <option className='text-right 2xl:text-[1rem] xl:text-[1rem] lg:text-[1rem] md:text-[1rem] 2sm:text-[0.9rem]' value="DEFAULT" disabled>ترتيب حسب</option>
+            <option className='text-right 2xl:text-[1rem] xl:text-[1rem] lg:text-[1rem] md:text-[1rem] 2sm:text-[0.9rem]' value="ascending">تصاعديا</option>
+            <option className='text-right 2xl:text-[1rem] xl:text-[1rem] lg:text-[1rem] md:text-[1rem] 2sm:text-[0.9rem]' value="descending">تنازليا</option>
           </select>
+          <span className=' 2xl:text-[1.2rem] xl:text-[1.2rem] md:text-[1.2rem] 2sm:text-[0.8rem]   2sm:mt-[0.3rem] 2xl:ml-[1rem] xl:ml-[1rem] lg:ml-[1rem] 2sm:ml-[1rem]  '>فرز حسب</span>
+
         </div>
      </form>
      
     <h1 className='2xl:text-[2.5rem] xl:text-[2.5rem] lg:text-[2.5rem] md:text-[2rem] 2sm:text-[1rem]   2xl:w-[20rem] xl:w-[20rem] md:w-[20rem] 2sm:w-[10rem]   font-bold text-[#69B184] text-right 2xl:mr-[2rem] xl:mr-[2rem] lg:mr-[2rem] md:mr-[2rem] 2sm:mr-[0rem]     '>اخر الاحداث</h1>
 
       </div>
-      <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 w-full "></hr>
+      <hr className="h-px my-2 bg-gray-200 border-0 dark:bg-gray-700 w-full "></hr>
       {(article.list?.map(post=>{
         return(
-            <div key={post.id} className='w-full 2xl:h-5/6 xl:h-5/6 lg:h-5/6 md:h-5/6 2sm:h-[10rem] flex justify-end  items-end mt-[3rem] '>
+            <div key={post.id} className='w-full  2xl:h-5/6 xl:h-5/6 lg:h-5/6 md:h-5/6 2sm:h-[10rem] flex justify-end  items-end mt-[0.1rem] '>
               <div className='flex flex-col w-full h-full'>
-              <div className='h-[18rem]  w-full   flex flex-row'>
-            <div className='w-6/12 flex  '>
-                <div className='flex flex-col h-full w-2/12 mr-[0.5rem] 2sm:mt-[0.8rem]   '>
-                    <h1 className='2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem] md:text-[1.8rem] 2sm:text-[1rem]'>{post.month}</h1>
-                    <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 w-[2rem]"></hr>
-                    <h1 className='2xl:text-[3rem] xl:text-[3rem] lg:text-[3rem] md:text-[2rem] 2sm:text-[1.5rem]'>{post.day}</h1>
+              <div className='2xl:h-3/6 xl:h-3/6 lg:h-3/6 md:h-3/6 2sm:h-3/4 w-full flex flex-row'>
+            <div className='w-6/12 flex  bg  h-full  '>
+                <div className='flex flex-col h-full w-2/12     2xl:ml-[1rem]  xl:ml-[1rem] lg:ml-[1rem] md:ml-[1rem] 2sm:ml-[0.1rem]  '>
+                    <h1 className='2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem] md:text-[1.8rem] 2sm:text-[0.8rem] text-gray2'>{post.month}</h1>
+                    <hr className="h-[0.1rem] my-0.5 bg-gray-200 border-0 dark:bg-gray-900 2xl:w-[2rem] xl:w-[2rem] lg:w-[2rem] md:w-[2rem] 2sm:w-[1rem]   "></hr>
+                    <h1 className='2xl:text-[3rem] xl:text-[3rem] lg:text-[3rem] md:text-[2rem] 2sm:text-[1.2rem] font-bold text-gray1'>{post.day}</h1>
                 </div>
-                <div className=' w-10/12	 h-full ml-[0.5rem]   '>
-                    <Image src={post.Image} alt="morethan1000volunteer" className='2xl:w-full 2xl:h-full xl:w-full xl:h-full lg:w-full lg:h-full md:w-[14rem] md:h-[13rem] 2sm:w-[10rem] 2sm:h-[6rem] 2sm:mt-[1rem]   rounded-[1rem]' />
+                <div className=' w-10/12 	 h-full ml-[0.5rem]   '>
+                    <Image src={post.Image} alt="morethan1000volunteer" className='2xl:w-full 2xl:h-[14.5rem] xl:w-full xl:h-[14.5rem] lg:w-[18rem] lg:h-[14.5rem] md:w-[14rem] md:h-[13rem] 2sm:w-[10rem] 2sm:h-[6rem] lg:mt-[1rem] rounded-[0.4rem] object-cover' />
                 </div>
             </div>
-            <div className='w-6/12 h-full flex flex-col justify-end items-end   relative'>
-         <div className=' h-3/6 mt-[1.5rem] flex flex-col  items-center 2sm:ml-[1rem] 	'>
-                   <h1 className='text-[#69B184] font-bold mr-[1rem]  2xl:text-[1.5rem] xl:text-[1.5rem] lg:text-[1.5rem]  md:text-[1rem] 2sm:text-[0.6rem] text-right  '>{post.lastestUpdate}</h1>
-                   <p className='text-[#c7c7c7] font-bold 2xl:text-[1rem] xl:text-[1rem] lg:text-[0.8rem] md:text-[0.8rem] 2sm:text-[0.4rem] mr-[0.5rem] mt-[1rem] 2xl:text-right xl:text-right lg:text-right md:text-right 2sm:text-center'>{post.paragraph}</p>
-                   <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 2xl:ml-[3rem] xl:ml-[3rem]  lg:ml-[2rem] md:ml-[1.5rem] 2sm:ml-[0rem] w-10/12	 mt-[2rem]	"></hr>
+            <div className='w-6/12  h-full flex flex-col  justify-end items-first relative mr-[0.4rem]'>
+         <div className=' h-2/3	 w-full mt-3    flex flex-col  items-center 2sm:ml-[1rem] 	'>
+                   <h1 className='text-[#000000] font-bold mr-[1rem]  2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem]  md:text-[1rem] 2sm:text-[0.6rem] text-right  '>{post.lastestUpdate}</h1>
+                   <p className='text-[#605f5f] font-bold 2xl:text-[1.2rem] xl:text-[1.2rem] lg:text-[1.2rem] md:text-[0.8rem] 2sm:text-[0.4rem] mr-[0.5rem] 2xl:mt-[1rem] xl:mt-[1rem] lg:mt-[1rem] md:mt-[1rem] 2sm:mt-[0.6rem]  2xl:text-right xl:text-right lg:text-right md:text-right 2sm:text-center'>{post.paragraph}</p>
+                   <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700 2xl:ml-[3rem] xl:ml-[3rem]  lg:ml-[2rem] md:ml-[1.5rem] 2sm:ml-[0rem] w-10/12	 2xl:mt-[2rem] xl:mt-[2rem] lg:mt-[2rem] md:mt-[2rem] 2sm:mb-[0.1rem]	"></hr>
 
          </div>
-<div className='flex flex-row justify-center w-full h-3/6	mb-[2rem]   '>
-        <div className='flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row 2sm:flex-col  justify-center  w-full h-full mt-[1rem] 2sm:ml-[1rem]'>
+<div className='flex flex-row justify-center w-full h-1/3	'>
+        <div className='flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row 2sm:flex-col  justify-center  w-full h-full 2xl:mt-[1rem] xl:mt-[1rem] lg:mt-[1rem] md:mt-[1rem] 2sm:mt-[2.5rem] 2sm:ml-[0.5rem]'>
         <div className='flex 2xl:ml-[4rem] xl:ml-[4rem] lg:ml-[4rem] md:ml-[2rem] 2sm:ml-[1rem] h-full w-full '>
             <a href='https://www.facebook.com/AzizAhsaan2/'>< BiLogoTwitter className="2xl:text-[2rem] xl:text-[2rem] lg:text-[2rem] md:text-[1rem] 2sm:text-[0.6rem] mr-[0.5rem] text-black" /></a>
             <h1 className=' 2xl:text-[1.1rem] xl:text-[1.1rem] lg:text-[1.1rem] md:text-[0.9rem]  2sm:text-[0.6rem] font-bold '>clean_iraq</h1>
@@ -163,7 +165,7 @@ const LatestUpdates = () => {
 
 
         </div>
-        <hr className="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 w-full "></hr>
+        <hr className="h-px 2xl:my-8 xl:my-8 lg:my-8 md:my-6 2sm:mt-[0.5rem] bg-gray-200 border-0 dark:bg-gray-700 w-full "></hr>
 
               </div>
     

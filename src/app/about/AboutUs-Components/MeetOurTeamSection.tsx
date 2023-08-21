@@ -14,6 +14,7 @@ import supervisor122 from "../Assets/supervisor122.jpg"
 import supervisor1221 from "../Assets/supervisor1221.jpg"
 import supervisor11 from "../Assets/supervisor11.jpg"
 import supervisor4 from "../Assets/supervisor4.jpg"
+import murtadah from "../Assets/murtadah.jpg"
 const MeetOurTeamSection = () => {
   
     type Object = {
@@ -27,7 +28,7 @@ const MeetOurTeamSection = () => {
     const object: Object=[
         {
             id:1,
-            photo:supervisor122,
+            photo:murtadah,
             name:"مرتضى",
             facebook:"https://www.facebook.com/AzizAhsaan2/",
             job:"front-end develper",
@@ -88,7 +89,7 @@ const MeetOurTeamSection = () => {
         <div id='SectionPhotoMeetOurTeam' className='w-2/4	 flex justify-end items-end  '>
           <div className='flex justify-center items-center xl:w-[20rem] xl:h-[20rem] lg:w-[20rem] lg:h-[20rem] md:w-[15rem] md:h-[15rem] 2sm:w-[8rem] 2sm:h-[8rem]  lg:ml-[10rem] md:ml-[6rem] 2sm:mt-[1.2rem]   '>
           {newperson.photo ? (
-                  <Image src={newperson.photo} alt='photo' className={`w-full h-full xl:rounded-[0rem] lg:rounded-[0rem] md:rounded-[0rem] 2sm:rounded-[10rem]  ${styles.bordermeetourteam} `} />
+                  <Image src={newperson.photo} alt='photo' className={`w-full h-full xl:rounded-[0rem] lg:rounded-[0rem] md:rounded-[0rem] 2sm:rounded-[10rem]  object-cover ${styles.bordermeetourteam} `} />
                 ) : (
                   <span>No photo available</span>
                 )}
