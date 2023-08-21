@@ -71,13 +71,14 @@ function MyForm() {
           <div className="flex flex-col md:flex-row gap-10 w-full">
             <div className="flex flex-col w-full items-end">
              <FormInput text="الاسم" type="text" name="name" placeholder=""/>
+             
              <FormInput text="العمر" type="number" name="age" placeholder=""/>
 
           </div>
           </div>
           <div className="flex flex-col md:flex-row gap-10  w-full">
            <PhoneNumberInput text="رقم الهاتف" name="personalNumber"/>
-             <FormInput text=" معرف التلكرام" type="text" name="telegram" placeholder=""/>
+             <FormInput text=" معرف التلكرام"  type="text"  name="telegram" placeholder=""/>
           </div>
           <div className="flex flex-col md:flex-row gap-10 items-center w-full">
            <TextareaInput text="رسالتك" name="msg" rows={3} placeholder=""/>
