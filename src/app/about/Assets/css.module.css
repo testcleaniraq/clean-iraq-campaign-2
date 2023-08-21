@@ -24,27 +24,36 @@
   }
   .tv {
 
-    box-shadow: 20px 20px rgba(129, 161, 198, 0.506);
+    box-shadow: 20px 20px rgba(100, 153, 115, 0.375);
     transition: all .4s ease;
   }
   .tv:hover {
-    box-shadow: 10px 10px rgba(153, 181, 209, 0.635);
+    box-shadow: 10px 10px rgba(149, 255, 160, 0.375);
   }
   .tv1 {
 
-    box-shadow: 11px 11px  rgba(2, 83, 176, 0.577);
+    box-shadow: 20px 20px rgba(100, 153, 115, 0.375);
     transition: all .4s ease;
   }
   .tv1:hover {
-    box-shadow: 9px 9px rgba(38, 80, 135, 0.629);
+    box-shadow: 10px 10px rgba(149, 255, 160, 0.375);
   }
   .bordermeetourteam {
 
     box-shadow: 20px 20px rgba(100, 153, 115, 0.375);
     transition: all .4s ease;
+    
   }
   .bordermeetourteam:hover {
     box-shadow: 10px 10px rgba(149, 255, 160, 0.375);
+  }
+  @keyframes .floatImage {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 .container{
   padding: 2rem;
@@ -79,7 +88,7 @@
   height: 1.2rem;
   width: 1.2rem;
   border-radius: 50%;
-  background-color: #436a91;
+  background-color: #69B184;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -110,7 +119,7 @@
   height: 1.2rem;
   width: 1.2rem;
   border-radius: 50%;
-  background-color: black;
+  background-color: #333333;
   left: 50%;
   top: 20%;
   transform: translateX(-50%);
@@ -131,7 +140,7 @@
   height: 300px;
 }
 .campaigngallery{
-  background-color: #436a91;
+  background-color: #69B184;
 }
 @media only screen and (max-width: 1030px) {
   .container{

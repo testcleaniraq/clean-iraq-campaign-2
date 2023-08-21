@@ -78,7 +78,7 @@ const NavigationAboutUs = () => {
 
   return (
     <div className='w-full bottom-0 fixed mb-[1rem] z-50 flex justify-center items-center'>
-      <div className='2xl:w-[26rem] 2xl:h-[3rem] xl:w-[26rem] xl:h-[3rem] lg:w-[26rem] lg:h-[3rem] md:w-[15rem] md:h-[2.1rem] 2sm:w-[15rem] 2sm:h-[2.1rem] rounded-[2rem] flex justify-center items-center bg-[#436a91] overflow-hidden border-[0.15rem] border-white '>
+      <div className='2xl:w-[26rem] 2xl:h-[3rem] xl:w-[26rem] xl:h-[3rem] lg:w-[26rem] lg:h-[3rem] md:w-[15rem] md:h-[2.1rem] 2sm:w-[15rem] 2sm:h-[2.1rem] rounded-[2rem] flex justify-center items-center bg-secondary overflow-hidden border-[0.15rem] border-white '>
         {navigationbar.map((navigation) => (
           <div
             key={navigation.id}

@@ -90,8 +90,8 @@ const CampaignMessageSection = () => {
             </article>
             <div id='SectionPhotoCampiagnMessage' className='lg:w-6/12 md:w-2/5 2sm:w-2/5 flex  justify-first xl:ml-[6rem]  lg:mr-[1.5rem] items-start md:ml-[4rem]    '>
                 <div className='lg:w-[23rem] lg:h-[32rem] md:w-[15rem] md:mr-[5rem]   relative flex justify-center items-center'>
-                    <Image  src={selectedarticle.photo1} alt="picture" className={`lg:h-full lg:w-full md:w-10/12 md:h-10/12 2sm:w-10/12 2sm:h-10/12  ${styles.tv}`} />
-                    <Image src={selectedarticle.photo2} alt='picture2' className='absolute lg:w-11/12 lg:h-11/12 md:w-10/12 md:h-10/12 2sm:w-10/12 2sm:h-10/12 lg:border-[0.5rem] 2sm:border-[0.1rem] lg:top-[15.9rem] lg:left-[10.2rem]  md:left-[6rem] md:top-[7.4rem] 2sm:left-[2rem] 2sm:top-[3.4rem]  ' />
+                    <Image  src={selectedarticle.photo1} alt="picture" className={`lg:h-full lg:w-full md:w-10/12 md:h-10/12 2sm:w-10/12 2sm:h-10/12 object-cover  ${styles.tv}`} />
+                    <Image src={selectedarticle.photo2} alt='picture2' className='absolute lg:w-11/12 lg:h-11/12 md:w-10/12 md:h-10/12 2sm:w-10/12 2sm:h-10/12 lg:border-[0.5rem] 2sm:border-[0.1rem] lg:top-[15.9rem] lg:left-[10.2rem]  md:left-[6rem] md:top-[7.4rem] 2sm:left-[2rem] 2sm:top-[3.4rem] object-cover  ' />
                 </div>
             </div>
           </div>
