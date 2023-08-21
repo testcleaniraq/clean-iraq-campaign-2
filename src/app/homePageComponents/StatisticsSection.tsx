@@ -7,7 +7,7 @@ import CountUp from 'react-countup';
 export const StatisticsSection = () => {
   const isTabletOrMobile = useMediaQuery('(max-width: 768px)');
   const CONTENT = [
-    { metric: "حملة تنضيف", number: 50 },
+    { metric: "حملة تنظيف", number: 50 },
     { metric: "كيس نفايات", number: 75000 },
     { metric: "متطوع", number: 10000 },
     { metric: "مدينة", number: 15 },
@@ -37,12 +37,12 @@ export const StatisticsSection = () => {
       <Image
         src={StatsBgImage}
         alt=""
-        className="absolute w-full h-full object-cover opacity-20"
+        className="absolute object-cover w-full h-full opacity-20"
       />
       <div className={`absolute grid ${isTabletOrMobile?'grid-cols-2':'grid-cols-8'} place-content-center gap-x-10 gap-y-10 text-white text-opacity-100  left-0 right-0 mx-auto items-center w-full h-full`}>
         {!isTabletOrMobile?(<div className="col-span-2"></div>):(<></>)}
         {CONTENT.map((item, index) => (
-          <div key={item.metric} className="flex flex-col gap-4 md:gap-8 items-center">
+          <div key={item.metric} className="flex flex-col items-center gap-4 md:gap-8">
             {animationPlayed ? (
               <CountUp start={0} end={item.number} duration={3} separator=","  className="text-3xl font-bold"/>
             ) : (
