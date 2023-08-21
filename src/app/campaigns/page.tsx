@@ -5,7 +5,7 @@ import { PreviousCampaign } from './components/previousCampaigns/PreviousCampaig
 
 export default function Campaigns() {
   return (
-    <main className=" min-h-screen w-screen items-center justify-center overflow-hidden">
+    <main className="items-center justify-center w-screen min-h-screen overflow-hidden ">
       <CampaignsHero/> 
       <Upcomming/>
       <PreviousCampaign/>  

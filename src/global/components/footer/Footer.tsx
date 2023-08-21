@@ -31,7 +31,7 @@ export default function Footer() {
      { icon:faInstagram, link:"https://www.instagram.com/reel/CmEH_cIKTBt/?igshid=MzRlODBiNWFlZA%3D%3D",},
     ],
     nav:[{
-      title:"عن سفراء النضافة",
+      title:"عن سفراء النظافة",
       links:[
         {text:"من نحن",link:ROUTES.about,onClick:undefined},
         {text:"الحملات",link:ROUTES.campaigns,onClick:undefined},
@@ -50,7 +50,7 @@ export default function Footer() {
   }
   return (
  
-  <footer className="bg-gray1 py-10 w-screen px-5 text-gray4" > 
+  <footer className="w-screen px-5 py-10 bg-gray1 text-gray4" > 
   {showModal && <MyModal closeModal={closeModal}/>}
   {!isTabletOrMobile?( <div className="grid grid-cols-6 gap-4">
    <div className='col-span-2'>
@@ -61,7 +61,7 @@ export default function Footer() {
    <FooterColumn item={item} />
   </div>
   ))}
-  <div className="col-span-2 flex gap-4 flex-col items-center">
+  <div className="flex flex-col items-center col-span-2 gap-4">
       <Logo/>
       <SocialLinks content={FOOTER_CONTENT.social}/>
   </div>
@@ -70,7 +70,7 @@ export default function Footer() {
 <div>
       <SocialLinks content={FOOTER_CONTENT.social}/>
      <FooterDivider/>
-  <div className="text-center text-lg space-y-2 ">
+  <div className="space-y-2 text-lg text-center ">
     <NewsletterSection/>
   </div>
 
@@ -88,6 +88,6 @@ export default function Footer() {
 }
  const FooterDivider = () => {
   return (
-     <hr className='border border-gray2 my-2'/>
+     <hr className='my-2 border border-gray2'/>
   )
 }
